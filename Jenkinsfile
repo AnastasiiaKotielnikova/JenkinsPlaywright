@@ -1,5 +1,9 @@
 pipeline {
-  agent any
+  agent { 
+    docker { 
+      image 'mcr.microsoft.com/playwright:v1.37.0-jammy'
+    } 
+  }
   stages {
     stage('install playwright') {
       steps {
