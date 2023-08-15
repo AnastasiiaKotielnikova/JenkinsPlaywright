@@ -4,6 +4,10 @@
   "description": "Jenkins with Playwright",
   "main": "index.js",
   "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnastasiiaKotielnikova/JenkinsPlaywright.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
