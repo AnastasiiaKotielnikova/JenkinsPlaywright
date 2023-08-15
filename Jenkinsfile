@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage('install playwright') {
       steps {
-        sh '''
+        ssh '''
           npm i -D @playwright/test
           npx playwright install
         '''
@@ -15,12 +15,12 @@ pipeline {
     }
     stage('help') {
       steps {
-        sh 'npx playwright test --help'
+        ssh 'npx playwright test --help'
       }
     }
     stage('test'){
         steps{
-            sh '''
+            ssh '''
             npx playwright test --list
             npx playwright test
             '''
