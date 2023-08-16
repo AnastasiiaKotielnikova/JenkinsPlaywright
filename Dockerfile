@@ -1,6 +1,5 @@
 #Get the base image of Node version 16
 FROM node:18.17.1
-FROM jenkinsci/blueocean
 
 # Get the latest version of Playwright
 FROM mcr.microsoft.com/playwright:focal
