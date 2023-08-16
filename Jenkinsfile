@@ -1,5 +1,9 @@
 pipeline {
-  agent { dockerfile true }
+  node {
+    checkout scm
+    def dockerfile = 'Dockerfile'
+    def customImage = docker.build("docker-jenkins-pipeline:${env.BUILD_ID}", "-f ${dockerfile} .")
+}
   stages {
     stage('install playwright') {
       steps {
