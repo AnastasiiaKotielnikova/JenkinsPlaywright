@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "Jenkins with Playwright",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test --browser=all",
+    "test-html-report": "playwright test --browser=all --reporter=html",
+    "test-json-report": "PLAYWRIGHT_JSON_OUTPUT_NAME=results.json playwright test --browser=chromium --reporter=json"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AnastasiiaKotielnikova/JenkinsPlaywright.git"
@@ -12,6 +16,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.37.0"
+    "@playwright/test": "^1.37.0",
+    "@types/node": "^20.5.0",
+    "playwright": "^1.37.0",
+    "typescript": "^5.1.6"
   }
 }
