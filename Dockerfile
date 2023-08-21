@@ -1,4 +1,4 @@
-#Get the base image of Node version 16
+ #Get the base image of Node version 16
 FROM node:18.17.1
 
 # Get the latest version of Playwright
