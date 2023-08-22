@@ -24,27 +24,34 @@
 //     }
 //   }
 // }
-
-
 pipeline {
-    agent any
-
+    agent {
+        docker {
+            image 'node:14'  // Use an official Node.js image as an example
+            args '-v /var/run/docker.sock:/var/run/docker.sock'  // Mount Docker socket
+        }
+    }
     stages {
         stage('Checkout') {
             steps {
-                // Checkout your source code from the repository
                 checkout scm
             }
         }
-        
-        stage('Install and Test') {
+        stage('Install Dependencies') {
             steps {
-                script {
-                    // Install dependencies and run Playwright tests
-                    sh 'npm install'
-                    sh 'npm test'
-                }
+                sh 'npm install'
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                sh 'npm test'
             }
         }
     }
+    post {
+        always {
+            cleanWs()  // Clean up workspace
+        }
+    }
 }
+
